@@ -28,14 +28,23 @@ const (
 
 // IssuesOption represents
 type IssuesOption struct {
-	IDs         []int         `url:"id[],omitempty"`
-	ProjectIDs  []int         `url:"projectId[],omitempty"`
-	AssigneeIDs []int         `url:"assigneeId[],omitempty"`
-	Statuses    []IssueStatus `url:"statusId[],omitempty"`
-	SharedFile  bool          `url:"sharedFile,omitempty"`
-	Count       int           `url:"count,omitempty"`
-	Offset      int           `url:"offset,omitempty"`
-	Keyword     string        `url:"keyword,omitempty"`
+	IDs            []int         `url:"id[],omitempty"`
+	ProjectIDs     []int         `url:"projectId[],omitempty"`
+	AssigneeIDs    []int         `url:"assigneeId[],omitempty"`
+	Statuses       []IssueStatus `url:"statusId[],omitempty"`
+	SharedFile     bool          `url:"sharedFile,omitempty"`
+	Count          int           `url:"count,omitempty"`
+	Offset         int           `url:"offset,omitempty"`
+	Keyword        string        `url:"keyword,omitempty"`
+	CreatedSince   string        `url:"createdSince,omitempty"`
+	CreatedUntil   string        `url:"createdUntil,omitempty"`
+	UpdatedSince   string        `url:"updatedSince,omitempty"`
+	UpdatedUntil   string        `url:"updatedUntil,omitempty"`
+	StartDateSince string        `url:"startDateSince,omitempty"`
+	StartDateUntil string        `url:"startDateUntil,omitempty"`
+	DueDateSince   string        `url:"dueDateSince,omitempty"`
+	DueDateUntil   string        `url:"dueDateUntil,omitempty"`
+	Sort           string        `url:"sort,omitempty"`
 }
 
 // ParamString returns
