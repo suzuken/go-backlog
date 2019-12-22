@@ -291,3 +291,27 @@ func (c *Client) DownloadAttachment(issueIDOrKey string, attachmentID int) (io.R
 
 	return resp.Body, params["filename"], nil
 }
+
+// StatusesWithProject returns project statuses.
+// /api/v2/projects/:projectIdOrKey/statuses
+func (c *Client) StatusesWithProject(projectKey string) (*StatusSlice, error) {
+	if len(projectKey) == 0 {
+		return nil, errors.New("invalid arguments")
+	}
+
+	endpoint := fmt.Sprintf("/api/v2/projects/%s/statuses", projectKey)
+	bytes, er := c.Get(endpoint, url.Values{})
+
+	if er != nil {
+		return nil, er
+	}
+
+	if PrintResponseJSON {
+		fmt.Println(string(bytes))
+	}
+
+	var statuses *StatusSlice
+	json.Unmarshal(bytes, &statuses)
+
+	return statuses, nil
+}
