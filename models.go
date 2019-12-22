@@ -63,9 +63,13 @@ type Priority struct {
 }
 
 // Status represents
+// +gen * slice:"Where,Count,SortBy,GroupBy[string],GroupBy[int],GroupBy[bool],first,MaxBy,MinBy,Distinct,DistinctBy,Shuffle"
 type Status struct {
-	ID   *int    `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
+	ID           *int    `json:"id,omitempty"`
+	Name         *string `json:"name,omitempty"`
+	ProjectID    *int    `json:"projectId,omitempty"`
+	Color        *string `json:"color,omitempty"`
+	DisplayOrder *int    `json:"displayOrder,omitempty"`
 }
 
 // Assignee represents
